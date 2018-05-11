@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rxjs</title>
+  <!--  <script src="node_modules/@reactivex/rxjs/dist/global/Rx.js"></script> -->
+   <script src="https://unpkg.com/@reactivex/rxjs@5.0.0-beta.12/dist/global/Rx.js"></script>
+   <script>
+     
+        //  --1----2-----4------6-------7----|
+        //  --2----4-----4------12------14---!
+       const observable = Rx.Observable.from([1,2,4,6,7]);
+       observable.subscribe( ele => console.log(ele));
+        observable.map(val => val*2).subscribe( ele => console.log('second subscribr = ' + ele));
+   </script>
+</head>
+<body>
+
+</body>
+</html>

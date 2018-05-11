@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "@reactivex/rxjs": "^6.1.0",
+    "@types/es6-shim": "^0.31.37",
+    "es6-shim": "^0.35.3",
+    "rxjs": "^6.1.0",
+    "rxjs-compat": "^6.1.0"
+  }
+}
