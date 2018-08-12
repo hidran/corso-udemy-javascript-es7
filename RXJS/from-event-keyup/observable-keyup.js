@@ -1,16 +1,18 @@
-var albumUrl = 'https://www.googleapis.com/books/v1/volumes?q=';
-var objs = Rx.Observable;
-var searchEle = document.getElementById('search');
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const albumUrl = 'https://www.googleapis.com/books/v1/volumes?q=';
+const objs = Rx.Observable;
+const searchEle = document.getElementById('search');
 function getBooks(q) {
-    var p = fetch(albumUrl + q).then(function (res) { return res.json(); });
-    var bookObjs = objs.fromPromise(p)
-        .map(function (books) { return books.items || []; })
-        .filter(function (items) { return items.length > 0; })
-        .do(function (items) { return updateCount(items.length); })
-        .switchMap(function (items) { return objs.of.apply(objs, items); })
-        .map(function (item) { return item.volumeInfo; })
-        .map(function (info) {
-        var obj = {
+    const p = fetch(albumUrl + q).then(res => res.json());
+    const bookObjs = objs.fromPromise(p)
+        .map((books) => books.items || [])
+        .filter((items) => items.length > 0)
+        .do((items) => updateCount(items.length))
+        .switchMap((items) => objs.of(...items))
+        .map((item) => item.volumeInfo)
+        .map((info) => {
+        const obj = {
             title: info.title,
             description: info.description || '',
             authors: info.authors ? info.authors.join(',') : '',
@@ -22,9 +24,9 @@ function getBooks(q) {
     return bookObjs;
 }
 objs.fromEvent(searchEle, 'input')
-    .map(function (ele) { return ele.target.value; })
-    .filter(function (val) { return val.length > 2; })
+    .map(ele => ele.target.value)
+    .filter((val) => val.length > 2)
     .debounceTime(10)
-    .do(function () { return cleanBooks(); })
-    .switchMap(function (q) { return getBooks(q); })
+    .do(() => cleanBooks())
+    .switchMap((q) => getBooks(q))
     .subscribe(displayBooks);

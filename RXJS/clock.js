@@ -1,5 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var Rx = require("rxjs/Rx");
-var timer = Rx.Observable.timer(1000, 1000);
-timer.subscribe(function (val) { return console.log(val); });
+const Rx = require("rxjs/Rx");
+let timer = Rx.Observable.timer(1000, 1000);
+timer.subscribe(val => console.log(val));

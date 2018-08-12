@@ -4,7 +4,7 @@ let total = document.querySelector('#total');
 const p = fetch(albumUrl).then( res => res.json());
 console.log(p)
 total.innerHTML = 0 ;
-
-let obs = Rx.Observable.fromPromise(p);
+const {from } = rxjs
+let obs = from(p);
 obs.subscribe(createList)
 

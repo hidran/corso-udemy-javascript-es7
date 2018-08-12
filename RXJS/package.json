@@ -1,9 +1,15 @@
 {
+  "name": "RXJS",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
-    "@reactivex/rxjs": "^6.1.0",
-    "@types/es6-shim": "^0.31.37",
-    "es6-shim": "^0.35.3",
-    "rxjs": "^6.1.0",
-    "rxjs-compat": "^6.1.0"
+    "rxjs": "^6.2.2"
   }
 }

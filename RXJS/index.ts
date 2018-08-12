@@ -1,6 +1,7 @@
-import * as Rx from "rxjs/Rx"
+// Observable: from, of dal pacchetto rxjs
+import { from }  from 'rxjs'
 // 1, 3, 5 , 6 , 7
-let observable = Rx.Observable.from([1,3,5,6,7])
+let observable = from([1,3,5,6,7]);
 
 observable.subscribe((val: number) => console.log(val))
 
